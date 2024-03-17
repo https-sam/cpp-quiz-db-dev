@@ -1,0 +1,151 @@
+{
+    "announcement": {
+      "show": false,
+      "text": "3 New Quetions!"
+    },
+    "quizzes": [
+      {
+        "question": "Does the following code compile?",
+        "options": [
+          {"id": 0, "option": "Yes"},
+          {"id": 1, "option": "No"},
+          {"id": 2, "option": "WTF!"}
+        ],
+        "answer": {
+          "id": 0,
+          "explanation": "Lambdas, scopes, scopes inside lambdas, and lambdas inside scopes!"
+        },
+        "code": "int main(){\n\t;\n\t{}\n\t{};\n\t[]{};\n\t[](){};\n\t[](){}();\n\t{{}[]{};};\n\t{}{}{}{}{}\n\t[](){{}}();\n\t{{}[](){}();};\n\t[](){{};{}{};}();\n}"
+      },
+      {
+        "question": "What is the output of the following code?",
+        "options": [
+          {"id": 0, "option": "-1"},
+          {"id": 1, "option": "255"},
+          {"id": 2, "option": "Undefined"}
+        ],
+        "answer": {
+          "id": 0,
+          "explanation": "Char is promoted to int, and if char is signed, 255 becomes -1."
+        },
+        "code": "int main() {\n\tchar c = 255;\n\tint i = c;\n\tstd::cout << i;\n\treturn 0;\n}"
+      },
+      {
+        "question": "Is the following code valid?",
+        "options": [
+          {"id": 0, "option": "Yes"},
+          {"id": 1, "option": "No"},
+          {"id": 2, "option": "Sometimes"}
+        ],
+        "answer": {
+          "id": 1,
+          "explanation": "Double deletion of a pointer leads to undefined behavior."
+        },
+        "code": "int main() {\n\tint *ptr = new int(10);\n\tdelete ptr;\n\tdelete ptr;\n\treturn 0;\n}"
+      },
+      {
+        "question": "What concept does the following code illustrate?",
+        "options": [
+          {"id": 0, "option": "Polymorphism"},
+          {"id": 1, "option": "Inheritance"},
+          {"id": 2, "option": "Both"}
+        ],
+        "answer": {
+          "id": 2,
+          "explanation": "The code demonstrates both inheritance and polymorphism through method overriding."
+        },
+        "code": "class A {\npublic:\n\tvirtual void show() { std::cout << \"A::show\"; }\n};\n\nclass B : public A {\npublic:\n\tvoid show() override { std::cout << \"B::show\"; }\n};\n\nint main() {\n\tA *a = new B;\n\ta->show();\n\tdelete a;\n}"
+      },
+      {
+        "question": "What is the issue with this code snippet?",
+        "options": [
+          {"id": 0, "option": "Reference must be initialized"},
+          {"id": 1, "option": "Syntax error"},
+          {"id": 2, "option": "No issue"}
+        ],
+        "answer": {
+          "id": 0,
+          "explanation": "In C++, a reference must be initialized when it is declared."
+        },
+        "code": "int main() {\n\tint &ref;\n\treturn 0;\n}"
+      },
+      {
+        "question": "What is the output of this code?",
+        "options": [
+          {"id": 0, "option": "10"},
+          {"id": 1, "option": "20"},
+          {"id": 2, "option": "30"}
+        ],
+        "answer": {
+          "id": 1,
+          "explanation": "ref is a reference to x, so modifying ref changes x to 20."
+        },
+        "code": "int main() {\n\tint x = 10;\n\tint &ref = x;\n\tref = 20;\n\tstd::cout << x;\n\treturn 0;\n}"
+      },
+      {
+        "question": "What does the following code snippet illustrate?",
+        "options": [
+          {"id": 0, "option": "Dynamic memory allocation"},
+          {"id": 1, "option": "Memory leak"},
+          {"id": 2, "option": "Proper memory management"}
+        ],
+        "answer": {
+          "id": 1,
+          "explanation": "The code allocates memory without freeing it, causing a memory leak."
+        },
+        "code": "int main() {\n\tint *p = new int(10);\n\treturn 0;\n}"
+      },
+      {
+        "question": "What will this C++ code output?",
+        "options": [
+          {"id": 0, "option": "Compilation error"},
+          {"id": 1, "option": "Undefined behavior"},
+          {"id": 2, "option": "0"}
+        ],
+        "answer": {
+          "id": 2,
+          "explanation": "The pointer p is pointing to an int initialized to 0, so it outputs 0."
+        },
+        "code": "int main() {\n\tint *p = new int();\n\tstd::cout << *p;\n\tdelete p;\n\treturn 0;\n}"
+      },
+      {
+        "question": "Can the following C++ function throw an exception?",
+        "options": [
+          {"id": 0, "option": "Yes"},
+          {"id": 1, "option": "No"},
+          {"id": 2, "option": "Compilation error"}
+        ],
+        "answer": {
+          "id": 0,
+          "explanation": "The function can throw a bad_alloc exception if memory allocation fails."
+        },
+        "code": "void test() {\n\tint *p = new int[1000000000];\n\tdelete[] p;\n}"
+      },
+      {
+        "question": "What is the result of the following C++ code?",
+        "options": [
+          {"id": 0, "option": "1"},
+          {"id": 1, "option": "0"},
+          {"id": 2, "option": "Compilation error"}
+        ],
+        "answer": {
+          "id": 0,
+          "explanation": "The unique_ptr goes out of scope and deletes the memory, so isValid() returns 0 (false)."
+        },
+        "code": "int main() {\n\tstd::unique_ptr<int> p(new int(10));\n\tauto isValid = p != nullptr;\n\tp.reset();\n\treturn isValid;\n}"
+      },
+      {
+        "question": "What is wrong with this C++ code?",
+        "options": [
+          {"id": 0, "option": "Nothing is wrong"},
+          {"id": 1, "option": "Segmentation fault"},
+          {"id": 2, "option": "Memory leak"}
+        ],
+        "answer": {
+          "id": 1,
+          "explanation": "Deleting a pointer twice leads to undefined behavior, possibly a segmentation fault."
+        },
+        "code": "int main() {\n\tint *p = new int(10);\n\tdelete p;\n\tdelete p;\n}"
+      }
+    ]
+}
