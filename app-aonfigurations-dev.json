@@ -1,6 +1,6 @@
 {
     "announcement": {
-      "show": false,
+      "show": true,
       "text": "3 New Quetions!"
     },
     "quizzes": [
